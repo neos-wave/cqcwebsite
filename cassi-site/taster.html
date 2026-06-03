@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Cassi — 60-second CQC Readiness Taster</title>
+<link rel="icon" type="image/svg+xml" href="/favicon.svg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Barlow:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --purple:#6911ed; --pink:#d711ed; --teal:#2da4af;
+    --deep-purple:#350b74; --turquoise:#8fffe6; --grey:#757775;
+    --bg:#FAF8F4; --surface:#FFFFFF; --ink:#1c1430; --ink-soft:#4a4360; --line:#e7e1f2;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{font-family:'Barlow',system-ui,sans-serif;background:var(--bg);color:var(--ink);
+    -webkit-font-smoothing:antialiased;padding:24px;line-height:1.5}
+  .card{max-width:560px;margin:0 auto;background:var(--surface);border:1px solid var(--line);
+    border-radius:24px;overflow:hidden;box-shadow:0 30px 70px -40px rgba(53,11,116,.35)}
+  /* header */
+  .top{display:flex;align-items:center;gap:12px;padding:20px 24px;border-bottom:1px solid var(--line);
+    background:linear-gradient(180deg,#fbf9ff,#fff)}
+  .badge{width:36px;height:36px;border-radius:11px;background:linear-gradient(135deg,var(--purple),var(--pink));
+    display:grid;place-items:center;flex:none}
+  .ttl{font-weight:800;color:var(--deep-purple);font-size:16px;letter-spacing:-.02em;line-height:1.1}
+  .ttl span{display:block;font-weight:500;font-size:12.5px;color:var(--grey)}
+  .live{margin-left:auto;font-size:11px;font-weight:700;color:var(--teal);background:#dff5f0;padding:4px 11px;border-radius:999px}
+  /* progress */
+  .pbar{height:4px;background:var(--line)}
+  .pfill{height:100%;width:0;background:linear-gradient(90deg,var(--purple),var(--pink));transition:width .4s ease}
+  .body{padding:26px 24px 28px}
+  /* intro */
+  .lede{font-size:15px;color:var(--ink-soft);margin-bottom:4px}
+  /* question */
+  .qwrap{animation:fade .35s ease both}
+  @keyframes fade{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:none}}
+  .qmeta{display:flex;align-items:center;gap:8px;margin-bottom:12px}
+  .dom{font-size:11px;font-weight:800;letter-spacing:.08em;text-transform:uppercase;padding:4px 10px;border-radius:999px}
+  .qcount{font-size:12.5px;color:var(--grey);font-weight:600;margin-left:auto}
+  .qtext{font-size:20px;font-weight:700;color:var(--deep-purple);letter-spacing:-.01em;line-height:1.25;margin-bottom:6px}
+  .qsub{font-size:13.5px;color:var(--grey);margin-bottom:22px}
+  .opts{display:flex;flex-direction:column;gap:10px}
+  .opt{display:flex;align-items:center;gap:13px;padding:15px 17px;border:1.5px solid var(--line);border-radius:14px;
+    background:#fff;cursor:pointer;font-weight:600;font-size:15.5px;color:var(--ink);transition:all .14s ease;text-align:left;font-family:inherit}
+  .opt:hover{border-color:var(--purple);transform:translateX(3px)}
+  .opt .key{width:26px;height:26px;border-radius:8px;flex:none;display:grid;place-items:center;font-size:13px;font-weight:800;color:#fff}
+  .opt.yes .key{background:var(--teal)} .opt.part .key{background:#e0a200} .opt.no .key{background:var(--pink)}
+  /* result */
+  .res{animation:fade .4s ease both}
+  .ring-wrap{display:flex;align-items:center;gap:22px;margin-bottom:22px}
+  .ring{position:relative;width:120px;height:120px;flex:none}
+  .ring svg{transform:rotate(-90deg)}
+  .ring .num{position:absolute;inset:0;display:grid;place-items:center;flex-direction:column;text-align:center}
+  .ring .num b{font-size:32px;font-weight:800;color:var(--deep-purple);line-height:1}
+  .ring .num small{font-size:11px;color:var(--grey);font-weight:600;display:block;margin-top:2px}
+  .verdict h3{font-size:20px;color:var(--deep-purple);margin-bottom:4px}
+  .verdict p{font-size:14px;color:var(--ink-soft)}
+  .section-h{font-size:12px;font-weight:800;letter-spacing:.09em;text-transform:uppercase;color:var(--grey);margin:22px 0 12px}
+  .gap{display:flex;gap:11px;align-items:flex-start;padding:12px 14px;border-radius:12px;background:#fdf2f9;border:1px solid #f6dcef;margin-bottom:9px}
+  .gap.warn{background:#fff8e8;border-color:#f3e2b8}
+  .gap .gi{flex:none;width:22px;height:22px;border-radius:7px;display:grid;place-items:center;color:#fff;font-size:12px;font-weight:800;margin-top:1px}
+  .gap.no .gi{background:var(--pink)} .gap.warn .gi{background:#e0a200}
+  .gap .gt{font-size:14px;font-weight:600;color:var(--ink)}
+  .gap .gd{font-size:12.5px;color:var(--grey)}
+  .strong{display:flex;gap:9px;align-items:center;font-size:14px;color:var(--ink-soft);padding:7px 0}
+  .strong .ci{color:var(--teal);flex:none}
+  /* over-time teaser */
+  .trend{margin-top:22px;border:1.5px dashed var(--line);border-radius:16px;padding:18px 20px;background:linear-gradient(180deg,#faf7ff,#fff)}
+  .trend h4{font-size:15px;color:var(--deep-purple);margin-bottom:5px}
+  .trend p{font-size:13px;color:var(--ink-soft)}
+  .spark{display:flex;align-items:flex-end;gap:6px;height:42px;margin-top:14px}
+  .spark span{flex:1;border-radius:4px 4px 0 0;background:linear-gradient(180deg,var(--teal),#bdeee6);opacity:.45}
+  .spark span.you{opacity:1;background:linear-gradient(180deg,var(--purple),var(--pink))}
+  .spark-x{display:flex;gap:6px;margin-top:6px}
+  .spark-x span{flex:1;text-align:center;font-size:10px;color:var(--grey);font-weight:600}
+  /* cta */
+  .cta{display:flex;flex-direction:column;gap:10px;margin-top:24px}
+  .btn{display:inline-flex;align-items:center;justify-content:center;gap:9px;font-weight:700;font-size:15.5px;
+    padding:15px 22px;border-radius:999px;border:0;cursor:pointer;font-family:inherit;transition:transform .16s,box-shadow .16s}
+  .btn-p{background:var(--purple);color:#fff;box-shadow:0 10px 26px -10px rgba(105,17,237,.7)}
+  .btn-p:hover{transform:translateY(-2px)}
+  .btn-g{background:transparent;color:var(--deep-purple);border:1.5px solid var(--line)}
+  .btn-g:hover{border-color:var(--purple);color:var(--purple)}
+  .disc{text-align:center;font-size:11px;color:var(--grey);margin-top:18px;padding:0 10px}
+  .hidden{display:none}
+</style>
+</head>
+<body>
+<div class="card">
+  <div class="top">
+    <div class="badge">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="3" fill="#fff"/><circle cx="5" cy="6" r="1.7" fill="#fff" opacity=".85"/><circle cx="19" cy="6" r="1.7" fill="#fff" opacity=".85"/><circle cx="5" cy="18" r="1.7" fill="#fff" opacity=".85"/><circle cx="19" cy="18" r="1.7" fill="#fff" opacity=".85"/></svg>
+    </div>
+    <div class="ttl">CQC Readiness<span>60-second taster</span></div>
+    <div class="live">Free</div>
+  </div>
+  <div class="pbar"><div class="pfill" id="pfill"></div></div>
+  <div class="body" id="stage"></div>
+</div>
+
+<script>
+// Real evidence checkpoints drawn from the 34 quality statements, one per CQC key question + extras.
+var CHECKS = [
+  {dom:"Safe", col:"#1B4D3E", bg:"#E8F5E9", t:"Can your staff describe the types of abuse and exactly how to report a concern?",
+   sub:"Safeguarding (S3) · Regulation 13", gap:"Staff unable to describe abuse types or reporting routes is one of the fastest paths to a Safe downgrade."},
+  {dom:"Safe", col:"#1B4D3E", bg:"#E8F5E9", t:"Are your MAR charts accurate and complete, with controlled drugs recorded and checked correctly?",
+   sub:"Medicines optimisation (S8) · Regulation 12", gap:"Medication recording gaps are among the most commonly cited issues at inspection."},
+  {dom:"Effective", col:"#1A237E", bg:"#E8EAF6", t:"Are MCA assessments decision-specific, with best-interest decisions properly recorded?",
+   sub:"Consent to care (E6) · Regulation 11 / MCA", gap:"Blanket or missing MCA assessments are a frequent Effective and Well-Led finding."},
+  {dom:"Effective", col:"#1A237E", bg:"#E8EAF6", t:"Do you track monthly quality metrics — falls, pressure ulcers, infections, weight, med errors — and act on the trends?",
+   sub:"Monitoring outcomes (E5) · Regulation 17", gap:"Without trend tracking you can't evidence improvement — the core of the current framework."},
+  {dom:"Caring", col:"#E65100", bg:"#FFF3E0", t:"Is privacy consistently maintained during personal care, and do staff know residents' preferred names?",
+   sub:"Kindness, compassion & dignity (C1) · Regulation 10", gap:"Dignity lapses are observed directly by inspectors and weigh heavily on Caring."},
+  {dom:"Responsive", col:"#4A148C", bg:"#F3E5F5", t:"Do you have clear 'you said, we did' evidence from residents' and relatives' feedback?",
+   sub:"Listening & involving (R4) · Regulation 16", gap:"Inspectors look for a closed feedback loop, not just that surveys were sent."},
+  {dom:"Well-led", col:"#263238", bg:"#ECEFF1", t:"Can your staff articulate the home's values, and does the manager visibly set a positive culture?",
+   sub:"Shared direction & culture (W1) · Regulation 17", gap:"Culture is assessed through staff, not documents — a hard gap to close quickly."},
+  {dom:"Well-led", col:"#263238", bg:"#ECEFF1", t:"Are recruitment files complete — DBS, references, right-to-work — and training compliance above 85%?",
+   sub:"Safe & effective staffing (S6) · Regulation 18/19", gap:"Incomplete recruitment files are an almost automatic enforcement trigger."}
+];
+
+// EDIT THIS to your live full-review URL:
+var FULL_REVIEW_URL = "https://YOUR-NETLIFY-URL.netlify.app";
+
+var answers = [];
+var idx = 0;
+var stage = document.getElementById('stage');
+var pfill = document.getElementById('pfill');
+
+function setProgress(){ pfill.style.width = (idx / CHECKS.length * 100) + "%"; }
+
+function intro(){
+  setProgress();
+  stage.innerHTML =
+    '<p class="lede">Eight inspector-style questions, drawn from the real CQC quality statements. This is just a taster — not a full assessment — but it shows you the idea. '
+    + 'See where you\'d stand today — and the gaps to fix before an inspector finds them.</p>'
+    + '<div class="cta"><button class="btn btn-p" id="go">Start the taster →</button></div>'
+    + '<p class="disc">AI-assisted simulation for guidance only. Not a CQC determination or a substitute for professional compliance advice.</p>';
+  document.getElementById('go').onclick = function(){ idx = 0; answers = []; question(); };
+}
+
+function question(){
+  setProgress();
+  var c = CHECKS[idx];
+  stage.innerHTML =
+    '<div class="qwrap">'
+    + '<div class="qmeta"><span class="dom" style="background:'+c.bg+';color:'+c.col+'">'+c.dom+'</span>'
+    + '<span class="qcount">Question '+(idx+1)+' of '+CHECKS.length+'</span></div>'
+    + '<div class="qtext">'+c.t+'</div>'
+    + '<div class="qsub">'+c.sub+'</div>'
+    + '<div class="opts">'
+    + '<button class="opt yes"  data-v="1"><span class="key">✓</span> Yes — in place and evidenced</button>'
+    + '<button class="opt part" data-v="0.5"><span class="key">~</span> Partly — some evidence, not consistent</button>'
+    + '<button class="opt no"   data-v="0"><span class="key">✕</span> Not yet — or not sure</button>'
+    + '</div></div>';
+  Array.prototype.forEach.call(stage.querySelectorAll('.opt'), function(b){
+    b.onclick = function(){
+      answers.push({ c:c, v:parseFloat(b.dataset.v) });
+      idx++;
+      if(idx < CHECKS.length) question(); else result();
+    };
+  });
+}
+
+function result(){
+  pfill.style.width = "100%";
+  var total = answers.reduce(function(s,a){ return s + a.v; }, 0);
+  var pct = Math.round(total / CHECKS.length * 100);
+
+  var verdict, vcol, vmsg;
+  if(pct >= 85){ verdict="Strong readiness"; vcol="#1d7a72"; vmsg="You'd likely evidence Good across most areas. The work now is holding it month on month."; }
+  else if(pct >= 60){ verdict="Some gaps to close"; vcol="#e0a200"; vmsg="A solid base with clear, fixable gaps. Closing these before an inspection is exactly what Cassi helps you track."; }
+  else { verdict="At risk"; vcol="#c2185b"; vmsg="Several areas would draw scrutiny today. These are addressable — but only if you can see them early."; }
+
+  var gaps = answers.filter(function(a){ return a.v < 1; })
+    .sort(function(a,b){ return a.v - b.v; });
+  var strengths = answers.filter(function(a){ return a.v === 1; });
+
+  var R = 52, C = 2 * Math.PI * R, off = C * (1 - pct/100);
+
+  var html = '<div class="res">'
+    + '<div class="ring-wrap">'
+    + '<div class="ring"><svg width="120" height="120">'
+    + '<circle cx="60" cy="60" r="'+R+'" fill="none" stroke="#eee6f7" stroke-width="11"/>'
+    + '<circle cx="60" cy="60" r="'+R+'" fill="none" stroke="url(#g)" stroke-width="11" stroke-linecap="round" '
+    + 'stroke-dasharray="'+C+'" stroke-dashoffset="'+C+'" id="prog"/>'
+    + '<defs><linearGradient id="g" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#6911ed"/><stop offset="1" stop-color="#d711ed"/></linearGradient></defs>'
+    + '</svg><div class="num"><div><b>'+pct+'%</b><small>readiness</small></div></div></div>'
+    + '<div class="verdict"><h3 style="color:'+vcol+'">'+verdict+'</h3><p>'+vmsg+'</p></div>'
+    + '</div>';
+
+  if(gaps.length){
+    html += '<div class="section-h">'+gaps.length+' gap'+(gaps.length>1?'s':'')+' to act on</div>';
+    gaps.forEach(function(a){
+      var cls = a.v === 0 ? 'no' : 'warn';
+      var ic = a.v === 0 ? '✕' : '~';
+      html += '<div class="gap '+cls+'"><span class="gi">'+ic+'</span><div>'
+        + '<div class="gt">'+a.c.dom+' — '+a.c.sub.split(' · ')[0]+'</div>'
+        + '<div class="gd">'+a.c.gap+'</div></div></div>';
+    });
+  }
+
+  if(strengths.length){
+    html += '<div class="section-h">Working well</div>';
+    strengths.slice(0,4).forEach(function(a){
+      html += '<div class="strong"><svg class="ci" width="17" height="17" viewBox="0 0 24 24" fill="none"><path d="M4 12.5 L9.5 18 L20 6" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></svg>'
+        + a.c.dom+' — '+a.c.sub.split(' · ')[0]+'</div>';
+    });
+  }
+
+  // over-time teaser
+  html += '<div class="trend"><h4>This is just a taster — not the full picture.</h4>'
+    + '<p>Run a readiness review each month and Cassi builds the picture over time — surfacing exactly what changed, where evidence has thinned, and which gaps are drifting toward a rating impact.</p>'
+    + '<div class="spark"><span style="height:45%"></span><span style="height:38%"></span><span style="height:55%"></span><span style="height:62%"></span><span class="you" style="height:'+Math.max(pct,18)+'%"></span></div>'
+    + '<div class="spark-x"><span>Jan</span><span>Feb</span><span>Mar</span><span>Apr</span><span>You</span></div></div>';
+
+  html += '<div class="cta">'
+    + '<a class="btn btn-p" href="'+FULL_REVIEW_URL+'" target="_blank" rel="noopener">Run the full 34-statement review →</a>'
+    + '<button class="btn btn-g" id="again">Try the taster again</button>'
+    + '</div>'
+    + '<p class="disc">AI-assisted simulation for guidance only. Not a CQC determination or a substitute for professional compliance advice.</p>'
+    + '</div>';
+
+  stage.innerHTML = html;
+  // animate the ring
+  setTimeout(function(){ var p = document.getElementById('prog'); if(p) p.style.transition='stroke-dashoffset 1s ease'; if(p) p.style.strokeDashoffset = off; }, 60);
+  document.getElementById('again').onclick = intro;
+}
+
+intro();
+</script>
+</body>
+</html>
