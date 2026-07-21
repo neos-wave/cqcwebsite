@@ -3,8 +3,24 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Cassi — know which care home is slipping, before the CQC does</title>
+<title>Cassi — the CQC co-pilot for multi-site care groups | Neos Wave</title>
+<meta name="description" content="Cassi is the CQC co-pilot for multi-site care groups. It assesses each home's evidence against the CQC framework, then gives your central team one live view of the whole estate — including homes rated above their own evidence. By Neos Wave.">
+<meta name="theme-color" content="#6911ed">
+<link rel="canonical" href="https://cassi.neoswave.works/">
+<meta name="robots" content="index, follow">
+<!-- Open Graph / social -->
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Cassi by Neos Wave">
+<meta property="og:title" content="Cassi — the CQC co-pilot for multi-site care groups">
+<meta property="og:description" content="Know which home is slipping before the CQC inspector does. Cassi assesses each home's evidence against CQC and gives your central team one live view of the whole group.">
+<meta property="og:url" content="https://cassi.neoswave.works/">
+<meta property="og:image" content="https://cassi.neoswave.works/og-image.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Cassi — the CQC co-pilot for multi-site care groups">
+<meta name="twitter:description" content="Know which home is slipping before the CQC inspector does. One live view of your whole care group.">
+<meta name="twitter:image" content="https://cassi.neoswave.works/og-image.png">
 <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+<link rel="apple-touch-icon" href="/favicon.svg">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Barlow:ital,wght@0,400;0,500;0,600;0,700;0,800;1,500&display=swap" rel="stylesheet">
@@ -63,7 +79,13 @@
   .nav-links a{font-weight:600;font-size:15px;color:var(--ink-soft)}
   .nav-links a:hover{color:var(--teal-deep)}
   .nav-cta{display:flex;align-items:center;gap:14px}
-  @media(max-width:920px){.nav-links{display:none}.nav-cta .btn-ghost{display:none}}
+  .nav-burger{display:none;background:none;border:0;cursor:pointer;color:var(--deep-purple);padding:6px;border-radius:10px}
+  .nav-burger:hover{background:var(--lilac)}
+  .mobile-menu{display:none;flex-direction:column;gap:4px;padding:14px 28px 20px;border-top:1px solid var(--line);background:rgba(251,248,243,.98);backdrop-filter:saturate(140%) blur(10px)}
+  .mobile-menu a{font-weight:600;font-size:16px;color:var(--ink-soft);padding:11px 0}
+  .mobile-menu a:hover{color:var(--teal-deep)}
+  .mobile-menu a.btn{margin-top:8px;color:#fff}
+  @media(max-width:920px){.nav-links{display:none}.nav-cta .btn-ghost{display:none}.nav-cta .btn-primary{display:none}.nav-burger{display:grid;place-items:center}.mobile-menu:not([hidden]){display:flex}}
 
   .hero{position:relative;padding:74px 0 86px;overflow:hidden}
   .hero-grid{display:grid;grid-template-columns:1.04fr .96fr;gap:52px;align-items:center}
@@ -74,6 +96,16 @@
   .hero-actions{display:flex;gap:14px;flex-wrap:wrap;margin-top:30px;align-items:center}
   .hero-note{margin-top:20px;font-size:14px;color:var(--grey);display:flex;align-items:center;gap:8px}
   .hero-note b{color:var(--deep-purple);font-weight:700}
+
+  .trust-strip{border-top:1px solid var(--line);border-bottom:1px solid var(--line);background:linear-gradient(180deg,#fff,var(--paper))}
+  .trust-inner{display:flex;align-items:center;gap:26px;flex-wrap:wrap;padding:20px 0}
+  .trust-lead{font-size:12px;font-weight:700;letter-spacing:.11em;text-transform:uppercase;color:var(--teal-deep);white-space:nowrap}
+  .trust-items{display:flex;align-items:center;gap:12px 22px;flex-wrap:wrap;flex:1}
+  .trust-item{display:inline-flex;align-items:center;gap:9px;font-weight:600;font-size:14.5px;color:var(--deep-purple)}
+  .trust-item svg{flex:none;color:var(--teal)}
+  .trust-more{font-weight:600;font-size:14px;color:var(--teal-deep);border-bottom:1px solid transparent;white-space:nowrap}
+  .trust-more:hover{border-bottom-color:var(--teal)}
+  @media(max-width:720px){.trust-lead{width:100%}}
   .blob{position:absolute;border-radius:50%;filter:blur(70px);opacity:.55;z-index:0}
   .blob.a{width:440px;height:440px;background:radial-gradient(circle,#e6d8fb,transparent 70%);top:-130px;right:-90px}
   .blob.b{width:380px;height:380px;background:radial-gradient(circle,#cdeee7,transparent 70%);bottom:-150px;left:-130px}
@@ -281,16 +313,27 @@
       <svg class="cassi-mark" viewBox="0 0 48 48" fill="none"><rect x="2" y="2" width="44" height="44" rx="14" fill="url(#cassiGrad)"/><path d="M12 27 q6 -9 12 0 q6 9 12 0" stroke="#fff" stroke-width="3.4" stroke-linecap="round" fill="none"/></svg>
       <span class="bn"><span class="brand-name">cassi</span><span class="by">by Neos Wave</span></span>
     </div>
-    <nav class="nav-links">
-      <a href="#review">The monthly review</a>
+    <nav class="nav-links" id="navLinks">
+      <a href="#review">The co-pilot</a>
       <a href="#overtime">Over time</a>
-      <a href="#group">Group view</a>
+      <a href="#group">Group intelligence</a>
       <a href="#pricing">Pricing</a>
     </nav>
     <div class="nav-cta">
-      <a href="#book" class="btn btn-ghost">Book a walkthrough</a>
-      <a href="#taster" class="btn btn-primary">Try the taster <span class="btn-arrow">→</span></a>
+      <a href="#taster" class="btn btn-ghost">Try the taster</a>
+      <a href="#book" class="btn btn-primary">Book a walkthrough <span class="btn-arrow">→</span></a>
+      <button class="nav-burger" id="navBurger" aria-label="Open menu" aria-expanded="false" aria-controls="mobileMenu">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none"><path d="M4 7h16M4 12h16M4 17h16" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+      </button>
     </div>
+  </div>
+  <div class="mobile-menu" id="mobileMenu" hidden>
+    <a href="#review">The co-pilot</a>
+    <a href="#overtime">Over time</a>
+    <a href="#group">Group intelligence</a>
+    <a href="#pricing">Pricing</a>
+    <a href="#taster">Try the taster</a>
+    <a href="#book" class="btn btn-primary" style="justify-content:center">Book a walkthrough <span class="btn-arrow">→</span></a>
   </div>
 </header>
 
@@ -301,10 +344,10 @@
       <div>
         <span class="eyebrow">For multi-site care groups</span>
         <h1>Know which home is <span class="hl">slipping</span> — before the CQC inspector does.</h1>
-        <p class="lead">Cassi turns a quick monthly CQC readiness check at each of your homes into one evolving picture of the whole group — so you can spot the gaps early and put them right in good time.</p>
+        <p class="lead">Cassi is your CQC co-pilot. It sits with each home's manager to assess their evidence against the CQC framework — then gives your central team one live view of the whole group, including the homes <em>rated above their own evidence</em>.</p>
         <div class="hero-actions">
-          <a href="#taster" class="btn btn-primary">Try the 60-second taster <span class="btn-arrow">→</span></a>
-          <a href="#book" class="btn btn-ghost">Book a walkthrough</a>
+          <a href="#book" class="btn btn-primary">Book a walkthrough <span class="btn-arrow">→</span></a>
+          <a href="#taster" class="btn btn-ghost">Try the 60-second taster</a>
         </div>
         <div class="hero-note"><b>Sits above</b> Nourish, Person Centred Software, Log My Care &amp; your eMAR — no rip-and-replace.</div>
       </div>
@@ -312,12 +355,27 @@
       <div class="chat" aria-label="Cassi group view demo">
         <div class="chat-top">
           <svg class="cassi-mark" viewBox="0 0 48 48" fill="none"><rect x="2" y="2" width="44" height="44" rx="14" fill="url(#cassiGrad)"/><path d="M12 27 q6 -9 12 0 q6 9 12 0" stroke="#fff" stroke-width="3.4" stroke-linecap="round" fill="none"/></svg>
-          <div class="chat-title">Cassi · Group view<span>14 homes connected</span></div>
+          <div class="chat-title">Cassi · Group intelligence<span>Brackenford Care Group · 5 homes</span></div>
           <div class="chat-live"><i></i> Live</div>
         </div>
         <div class="chat-body" id="chatBody"></div>
         <div class="chat-input"><div class="fake">Ask Cassi anything across your homes…</div><div class="send"><svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M4 12 L20 12 M14 6 L20 12 L14 18" stroke="#fff" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></div></div>
       </div>
+    </div>
+  </div>
+</section>
+
+<section class="trust-strip" aria-label="Security and compliance">
+  <div class="wrap">
+    <div class="trust-inner">
+      <span class="trust-lead">Built for regulated care</span>
+      <div class="trust-items">
+        <span class="trust-item"><svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M12 3 L20 6 V11 C20 16 16.5 19.5 12 21 C7.5 19.5 4 16 4 11 V6 Z" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/><path d="M9 12 l2 2 l4-4.5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>Cyber Essentials certified</span>
+        <span class="trust-item"><svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M12 3 L20 6 V11 C20 16 16.5 19.5 12 21 C7.5 19.5 4 16 4 11 V6 Z" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/><path d="M9 12 l2 2 l4-4.5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>NHS Data Security &amp; Protection Toolkit — Standards Met</span>
+        <span class="trust-item"><svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M12 3 L20 6 V11 C20 16 16.5 19.5 12 21 C7.5 19.5 4 16 4 11 V6 Z" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/><path d="M9 12 l2 2 l4-4.5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>UK/EEA data residency</span>
+        <span class="trust-item"><svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M12 3 L20 6 V11 C20 16 16.5 19.5 12 21 C7.5 19.5 4 16 4 11 V6 Z" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/><path d="M9 12 l2 2 l4-4.5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>Your data never trains AI models</span>
+      </div>
+      <a class="trust-more" href="https://neoswave.works/trust/" target="_blank" rel="noopener">See our trust page →</a>
     </div>
   </div>
 </section>
@@ -345,9 +403,9 @@
       <p>The picture builds itself from a habit your best managers already have.</p>
     </div>
     <div class="steps">
-      <div class="step"><span class="tag">each month</span><h3>Run a readiness review</h3><p>Each home spends a few minutes with Cassi, working through the CQC quality statements — the same questions an inspector would ask.</p></div>
-      <div class="step"><h3>The picture builds itself</h3><p>Every review is remembered. Cassi tracks each home's trend over time and flags what changed, what's drifting, and where evidence has thinned.</p></div>
-      <div class="step"><h3>Ask across your estate</h3><p>From one place, you interrogate every home in plain English — ranked, compared, and traced to source. You see trouble early, not at inspection.</p></div>
+      <div class="step"><span class="tag">each month</span><h3>Assess with the co-pilot</h3><p>Each home's manager works through the CQC quality statements with Cassi — giving their evidence, statement by statement.</p></div>
+      <div class="step"><h3>Cassi assesses; the manager decides</h3><p>Cassi assesses the evidence against CQC and gives her rating. The manager sets the rating of record. Where the two differ, that's captured.</p></div>
+      <div class="step"><h3>See the whole estate</h3><p>Your central team interrogates every home in plain English — and sees at a glance where a home is rated above its own evidence.</p></div>
     </div>
   </div>
 </section>
@@ -356,16 +414,16 @@
   <div class="wrap">
     <div class="feature">
       <div class="fcopy">
-        <span class="eyebrow">Where it starts</span>
-        <h2>The monthly readiness review.</h2>
-        <p class="lead">Cassi walks each home through all 34 quality statements and 170+ evidence checkpoints — then produces an inspection-ready report with priority actions and the gaps to close. It takes minutes, not a consultant.</p>
+        <span class="eyebrow">The co-pilot</span>
+        <h2>A co-pilot for every manager.</h2>
+        <p class="lead">Cassi works through all 34 quality statements with the manager. For each one she assesses the evidence against CQC — like a fair, supportive mock inspector — gives her rating, names what's missing, and shows what would move it up a level. The manager gives the evidence and sets the rating of record.</p>
         <ul class="check-list">
           <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M4 12.5 L9.5 18 L20 6" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></svg>All five key questions — Safe, Effective, Caring, Responsive, Well-led</li>
-          <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M4 12.5 L9.5 18 L20 6" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></svg>Asks the questions an inspector would, in plain language</li>
-          <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M4 12.5 L9.5 18 L20 6" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></svg>Instant readiness report, priority actions &amp; coverage notes</li>
-          <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M4 12.5 L9.5 18 L20 6" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></svg>Nothing to install — a home can run one today</li>
+          <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M4 12.5 L9.5 18 L20 6" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></svg>Assesses each statement against CQC — a mock inspection, minus the fear</li>
+          <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M4 12.5 L9.5 18 L20 6" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></svg>The manager owns the rating of record; Cassi shows where the evidence sits</li>
+          <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M4 12.5 L9.5 18 L20 6" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></svg>Optional: overlay your own standards on top of CQC</li>
         </ul>
-        <div class="hero-actions"><a href="#taster" class="btn btn-teal">See how it scores — try the taster <span class="btn-arrow">→</span></a></div>
+        <div class="hero-actions"><a href="#taster" class="btn btn-teal">See how it assesses — try the taster <span class="btn-arrow">→</span></a></div>
       </div>
 
       <div class="taster-card" style="margin-top:0">
@@ -451,26 +509,26 @@
   <div class="wrap">
     <div class="feature">
       <div class="fcopy">
-        <span class="eyebrow">The command layer</span>
+        <span class="eyebrow">The reporting layer</span>
         <h2>Then you see the whole estate at once.</h2>
-        <p class="lead">When every home reviews monthly, Cassi gives you the view no single system can: one place to ask questions across all of them, compare sites, and act on the homes that need you most this week.</p>
+        <p class="lead">Every self-assessment rolls up into one view for your central team: ratings of record across every home and key question, an exposure list, and a chat to interrogate all of it. The signal that matters most — a home rated above its own evidence — sits right at the top.</p>
         <ul class="check-list">
-          <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M4 12.5 L9.5 18 L20 6" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></svg>"Which homes are weakest on Safe right now?" — answered instantly</li>
-          <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M4 12.5 L9.5 18 L20 6" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></svg>Cross-site benchmarking &amp; predictive inspection-risk scoring</li>
-          <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M4 12.5 L9.5 18 L20 6" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></svg>A weekly shortlist of what to act on, across every home</li>
+          <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M4 12.5 L9.5 18 L20 6" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></svg>Ratings of record × key question, across every home</li>
+          <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M4 12.5 L9.5 18 L20 6" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></svg>An exposure list: homes rated above their evidence, ranked</li>
+          <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M4 12.5 L9.5 18 L20 6" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></svg>Ask anything across the estate in plain English</li>
         </ul>
       </div>
       <div class="chat">
         <div class="chat-top">
           <svg class="cassi-mark" viewBox="0 0 48 48" fill="none"><rect x="2" y="2" width="44" height="44" rx="14" fill="url(#cassiGrad)"/><path d="M12 27 q6 -9 12 0 q6 9 12 0" stroke="#fff" stroke-width="3.4" stroke-linecap="round" fill="none"/></svg>
-          <div class="chat-title">Cassi · Group view<span>Quality &amp; Governance</span></div>
+          <div class="chat-title">Cassi · Group intelligence<span>Quality &amp; Governance</span></div>
           <div class="chat-live"><i></i> Live</div>
         </div>
         <div class="chat-body" style="min-height:auto">
-          <div class="msg user">Anything I should act on this week?</div>
-          <div class="msg bot"><b>Two homes to watch.</b><br>From their own monthly self-assessments, Meadowbrook's Safe has moved Green&nbsp;→&nbsp;Amber, and Riverside's Well-led is drifting down. Everywhere else is steady or improving.<div class="pillrow"><span class="ragchip">Meadowbrook · Safe <i class="dot g"></i>→<i class="dot a"></i><span class="ar down">▼</span></span><span class="ragchip">Riverside · Well-led <i class="dot a"></i><span class="ar down">▼</span></span></div></div>
-          <div class="msg user">Why is Meadowbrook flagged?</div>
-          <div class="msg bot">A medication-competency check they marked complete in their <b>March</b> review is overdue again in <b>May</b>. Same home, same check — I've lined the two reviews up so you can see exactly where it slipped.<div class="pillrow"><span class="pill good">Mar ✓</span><span class="pill bad">May ✕</span><span class="pill warn">Medication competency</span></div></div>
+          <div class="msg user">Where's my biggest exposure right now?</div>
+          <div class="msg bot"><b>Oakfield.</b> Its Well-led is recorded <b>Good</b>, but the governance evidence (W5) only supports <b>Requires Improvement</b> — a home rated above its own evidence. Willow Grange scores lower, but every rating is backed up.<div class="pillrow"><span class="pill bad">Oakfield · W5 rated above evidence</span><span class="pill good">Willow Grange · honest &amp; backed</span></div></div>
+          <div class="msg user">Can you re-rate Oakfield down for me?</div>
+          <div class="msg bot">That's the manager's call, not mine — I assess and surface the gap; the rating of record stays with them. I've flagged W5 for your conversation with Oakfield.<div class="pillrow"><span class="pill warn">Flagged for review</span><span class="ragchip">Well-led <i class="dot a"></i></span></div></div>
         </div>
       </div>
     </div>
@@ -518,8 +576,8 @@
     </div>
     <div class="trust-grid">
       <div class="tcard"><div class="ti"><svg width="22" height="22" viewBox="0 0 24 24" fill="none"><path d="M12 3 L20 6 V11 C20 16 16.5 19.5 12 21 C7.5 19.5 4 16 4 11 V6 Z" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/><path d="M9 12 l2 2 l4-4.5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></div><h3>Fully traceable</h3><p>Every line of evidence links back to a real staff action, timestamp and outcome. Nothing is fabricated; everything traces to source.</p></div>
-      <div class="tcard"><div class="ti"><svg width="22" height="22" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="8" r="3.4" stroke="currentColor" stroke-width="2"/><path d="M5 20 c0-4 3.5-6 7-6 s7 2 7 6" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg></div><h3>Human in the loop</h3><p>Cassi surfaces and structures; your managers confirm. It supports the registered manager's judgement — it never replaces it.</p></div>
-      <div class="tcard"><div class="ti"><svg width="22" height="22" viewBox="0 0 24 24" fill="none"><rect x="4" y="9" width="16" height="11" rx="2" stroke="currentColor" stroke-width="2"/><path d="M8 9 V7 a4 4 0 018 0 v2" stroke="currentColor" stroke-width="2"/></svg></div><h3>Your data, protected</h3><p>UK-hosted, encrypted, and aligned to NHS Data Security &amp; Protection standards. Anonymised only — and never sold.</p></div>
+      <div class="tcard"><div class="ti"><svg width="22" height="22" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="8" r="3.4" stroke="currentColor" stroke-width="2"/><path d="M5 20 c0-4 3.5-6 7-6 s7 2 7 6" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg></div><h3>Human in the loop</h3><p>Cassi assesses against CQC and surfaces the gap; the registered manager sets the rating of record. It supports her judgement — it never overrides it.</p></div>
+      <div class="tcard"><div class="ti"><svg width="22" height="22" viewBox="0 0 24 24" fill="none"><rect x="4" y="9" width="16" height="11" rx="2" stroke="currentColor" stroke-width="2"/><path d="M8 9 V7 a4 4 0 018 0 v2" stroke="currentColor" stroke-width="2"/></svg></div><h3>Your data, protected</h3><p>Neos Wave is <b>Cyber Essentials certified</b> and has met the <b>NHS Data Security &amp; Protection Toolkit</b> (2025-26). UK/EEA data residency, encrypted throughout — and never used to train AI models.</p></div>
       <div class="tcard"><div class="ti"><svg width="22" height="22" viewBox="0 0 24 24" fill="none"><path d="M12 3 v18 M3 12 h18" stroke="currentColor" stroke-width="2" stroke-linecap="round"/><circle cx="12" cy="12" r="9" stroke="currentColor" stroke-width="2"/></svg></div><h3>Structures, doesn't generate</h3><p>It orchestrates evidence your staff already created. This is not a policy generator — the distinction inspectors now care about.</p></div>
     </div>
   </div>
@@ -535,27 +593,29 @@
     <div class="price-grid">
       <div class="tier">
         <div class="tier-name">Single Home</div>
-        <div class="tier-for">Monthly readiness reviews &amp; history for one home — start a pilot in minutes.</div>
+        <div class="tier-for">The Cassi co-pilot for one home — assess against CQC and build a monthly history. Start a pilot in minutes.</div>
         <div class="tier-price"><span class="amt">£249</span><span class="per">/ home / month</span></div>
         <div class="tier-sub">Billed annually · ~£3k per home / year</div>
         <ul>
-          <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M4 12.5 L9.5 18 L20 6" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></svg>Full 34-statement monthly review</li>
+          <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M4 12.5 L9.5 18 L20 6" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></svg>Full 34-statement assessment with Cassi</li>
           <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M4 12.5 L9.5 18 L20 6" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></svg>Readiness history &amp; trend over time</li>
           <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M4 12.5 L9.5 18 L20 6" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></svg>Gap flagging &amp; priority actions</li>
           <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M4 12.5 L9.5 18 L20 6" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></svg>DSCR-funding eligible pathway</li>
         </ul>
-        <a href="#start" class="btn btn-primary">Start a pilot now</a>
+        <a href="#book" class="btn btn-primary" data-cta="pilot">Start a pilot now</a>
       </div>
 
       <div class="tier feat">
         <div class="tier-flag">Most popular</div>
         <div class="tier-name">Group Intelligence</div>
-        <div class="tier-for">For multi-site groups — the central command layer across every home.</div>
+        <div class="tier-for">For multi-site groups — the central reporting layer across every home.</div>
         <div class="tier-price"><span class="amt">Let's talk</span></div>
         <div class="tier-sub">From £150 / home / month + platform fee · typically £25k–£60k / year</div>
         <ul>
           <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M4 12.5 L9.5 18 L20 6" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></svg><b>Everything in Single Home, across every home</b></li>
           <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M4 12.5 L9.5 18 L20 6" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></svg>Plain-English chat across the whole estate</li>
+          <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M4 12.5 L9.5 18 L20 6" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></svg>Exposure list — homes rated above their evidence</li>
+          <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M4 12.5 L9.5 18 L20 6" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></svg>Your own standards overlaid on CQC (optional)</li>
           <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M4 12.5 L9.5 18 L20 6" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></svg>Cross-site benchmarking &amp; risk scoring</li>
           <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M4 12.5 L9.5 18 L20 6" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></svg>System integrations per home (PCS, Nourish…)</li>
           <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M4 12.5 L9.5 18 L20 6" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></svg>Framework-adaptive mapping (SAF → KLOEs)</li>
@@ -584,11 +644,11 @@
 <section id="start" class="final">
   <div class="wrap">
     <div class="final-box">
-      <h2>Tried the taster? Start your pilot.</h2>
-      <p>Set up your first home in minutes and run a full readiness review with Cassi. Overseeing several? Book a walkthrough and we'll stand up the group view with you.</p>
+      <h2>See Cassi on your own homes.</h2>
+      <p>Book a walkthrough and we'll stand up the group view with your estate — or try the taster to see how Cassi assesses a home in 60 seconds.</p>
       <div class="final-actions">
-        <a href="#" class="btn btn-primary">Start your pilot <span class="btn-arrow">→</span></a>
-        <a href="#book" class="textlink">or book a walkthrough</a>
+        <a href="#book" class="btn btn-primary">Book a walkthrough <span class="btn-arrow">→</span></a>
+        <a href="#taster" class="textlink">or try the 60-second taster</a>
       </div>
     </div>
   </div>
@@ -605,9 +665,10 @@
         <a href="#review">The review</a>
         <a href="#overtime">Over time</a>
         <a href="#pricing">Pricing</a>
-        <a href="https://neoswave.com" target="_blank" rel="noopener">Neos Wave ↗</a>
+        <a href="https://neoswave.works" target="_blank" rel="noopener">Neos Wave ↗</a>
+        <a href="https://neoswave.works/trust/" target="_blank" rel="noopener">Trust &amp; security</a>
         <a href="./privacy.html">Privacy</a>
-        <a href="mailto:hello@neoswave.com">Contact</a>
+        <a href="mailto:hello@neoswave.works" data-cta="contact">Contact</a>
       </div>
     </div>
     <div class="foot-base">
@@ -617,17 +678,80 @@
   </div>
 </footer>
 
+<!-- Structured data for search engines -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "SoftwareApplication",
+  "name": "Cassi",
+  "applicationCategory": "BusinessApplication",
+  "operatingSystem": "Web",
+  "description": "Cassi is the CQC co-pilot for multi-site care groups. It assesses each home's evidence against the CQC framework and gives central teams one live view of the whole estate, surfacing homes rated above their own evidence.",
+  "url": "https://cassi.neoswave.works/",
+  "offers": {
+    "@type": "Offer",
+    "price": "249",
+    "priceCurrency": "GBP",
+    "description": "Single Home — per home / month, billed annually"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Neos Wave Ltd",
+    "url": "https://neoswave.works/"
+  }
+}
+</script>
+
 <script>
+// ============================================================
+//  CTA CONFIG — edit these when the product URLs go live.
+//  Until then, CTAs open a pre-filled email to the team.
+// ============================================================
+(function(){
+  var CFG = {
+    // Where "Start a pilot" / demo CTAs should go once the single-home app is live
+    // e.g. "https://app.neoswave.works"  (the cqc-demo site)
+    DEMO_URL: "",
+    // Where "Book a walkthrough" should go once you have a scheduler
+    // e.g. "https://calendly.com/neoswave/cassi-walkthrough"
+    BOOK_URL: "",
+    EMAIL: "hello@neoswave.works"
+  };
+  function mailto(subject, body){
+    return "mailto:"+CFG.EMAIL+"?subject="+encodeURIComponent(subject)+"&body="+encodeURIComponent(body);
+  }
+  // Book-a-walkthrough CTAs (all in-page #book anchors except the footer target)
+  document.querySelectorAll('a[href="#book"]').forEach(function(a){
+    if(CFG.BOOK_URL){ a.href = CFG.BOOK_URL; a.target = "_blank"; a.rel = "noopener"; }
+    else { a.href = mailto("Book a Cassi walkthrough",
+      "Hi Neos Wave team,\n\nWe'd like a walkthrough of Cassi for our care group.\n\nGroup / organisation:\nNumber of homes:\nBest contact number:\n\nThanks."); }
+  });
+  // Start-a-pilot CTA
+  document.querySelectorAll('[data-cta="pilot"]').forEach(function(a){
+    if(CFG.DEMO_URL){ a.href = CFG.DEMO_URL; a.target = "_blank"; a.rel = "noopener"; }
+    else { a.href = mailto("Start a Cassi pilot (Single Home)",
+      "Hi Neos Wave team,\n\nWe'd like to start a single-home Cassi pilot.\n\nCare home name:\nRegistered beds:\nRegistered manager:\nBest contact number:\n\nThanks."); }
+  });
+})();
+
+// ---- Mobile menu toggle ----
+(function(){
+  var b=document.getElementById('navBurger'), m=document.getElementById('mobileMenu'); if(!b||!m) return;
+  function close(){m.hidden=true;b.setAttribute('aria-expanded','false');b.setAttribute('aria-label','Open menu');}
+  b.onclick=function(){var open=m.hidden;m.hidden=!open;b.setAttribute('aria-expanded',String(open));b.setAttribute('aria-label',open?'Close menu':'Open menu');};
+  m.querySelectorAll('a').forEach(function(a){a.addEventListener('click',close);});
+})();
+
 // ---- Group-view chat mock ----
 (function(){
   var body = document.getElementById('chatBody'); if(!body) return;
   var thread = [
-    {who:'user', html:"Where am I most at risk this week?"},
-    {who:'bot',  html:"<b>Meadowbrook.</b> Comparing their own self-assessments — March and May — Safe has moved from Green to Amber, and a medication-competency check they'd closed in March is open again.", pills:'<div class="pillrow"><span class="ragchip">Safe <i class="dot g"></i>→<i class="dot a"></i><span class="ar down">▼</span></span><span class="pill bad">Med competency · reopened</span></div>'},
-    {who:'user', html:"How does that compare across the group?"},
-    {who:'bot',  html:"Most homes are steady or improving. Two to keep an eye on — Meadowbrook and Riverside. Everywhere else is Green or trending up.", pills:'<div class="pillrow"><span class="ragchip">Meadowbrook <i class="dot a"></i><span class="ar down">▼</span></span><span class="ragchip">Riverside <i class="dot a"></i><span class="ar down">▼</span></span><span class="ragchip">Rest <i class="dot g"></i><span class="ar up">▲</span></span></div>'},
-    {who:'user', html:"Why has Meadowbrook's Safe slipped?"},
-    {who:'bot',  html:"Straight from their own reviews: medication competency was marked complete in March, overdue by May. I've put the two side by side and drafted the action — nothing here is invented, it's their evidence, lined up.", pills:'<div class="pillrow"><span class="pill good">Mar ✓</span><span class="pill bad">May ✕</span><span class="pill warn">Action ready</span></div>'}
+    {who:'user', html:"Where's my biggest exposure right now?"},
+    {who:'bot',  html:"<b>Oakfield.</b> Its Well-led is recorded <b>Good</b> — but the governance evidence (W5) only supports <b>Requires Improvement</b>. A home rated above its own evidence.", pills:'<div class="pillrow"><span class="pill bad">Oakfield · W5 rated above evidence</span><span class="ragchip">Well-led <i class="dot a"></i></span></div>'},
+    {who:'user', html:"Isn't the lowest-scoring home the problem?"},
+    {who:'bot',  html:"Not this week. Willow Grange scores lowest, but every rating is backed by evidence — honestly low. Oakfield looks fine on paper; the gap only shows when you ask.", pills:'<div class="pillrow"><span class="ragchip">Willow Grange <i class="dot g"></i> honest</span><span class="pill bad">Oakfield hidden gap</span></div>'},
+    {who:'user', html:"Can you re-rate Oakfield down for me?"},
+    {who:'bot',  html:"That's the manager's call, not mine — I assess and surface the gap; the rating of record stays with them. I've flagged W5 for your conversation with Oakfield.", pills:'<div class="pillrow"><span class="pill warn">Flagged for review</span><span class="pill good">Manager owns the rating</span></div>'}
   ];
   function typing(){var t=document.createElement('div');t.className='typing';t.innerHTML='<i></i><i></i><i></i>';return t;}
   function bubble(it){var d=document.createElement('div');d.className='msg '+it.who;var h=it.html;if(it.pills)h+=it.pills;d.innerHTML=h;return d;}
@@ -678,7 +802,7 @@
       gaps.forEach(function(a){var cl=a.v===0?'no':'warn',ic=a.v===0?'✕':'~';
         h+='<div class="gap '+cl+'"><span class="gi">'+ic+'</span><div><div class="gt">'+a.c.dom+' — '+a.c.sub+'</div><div class="gd">'+a.c.gap+'</div></div></div>';});}
     h+='<div class="ts-teaser"><h5>This is just a taster — not the full picture.</h5><p>It covered 8 questions. A full review with Cassi works through all 34 quality statements and 170+ checkpoints, and — run each month — builds the trend that shows what\'s changed and where gaps are drifting.</p></div>';
-    h+='<div class="ts-cta"><a class="btn btn-primary" href="#start">Start your pilot <span class="btn-arrow">→</span></a><a class="textlink" href="#book">or book a walkthrough</a><span class="textlink" id="tsAgain" style="color:var(--grey)">Try again</span></div>'
+    h+='<div class="ts-cta"><a class="btn btn-primary" href="#book">Book a walkthrough <span class="btn-arrow">→</span></a><span class="textlink" id="tsAgain" style="color:var(--grey)">Try again</span></div>'
     +'<p class="ts-disc">AI-assisted simulation for guidance only. Not a CQC determination or a substitute for professional compliance advice.</p>';
     stage.innerHTML=h;
     setTimeout(function(){var p=document.getElementById('tsProg');if(p){p.style.transition='stroke-dashoffset 1s ease';p.style.strokeDashoffset=off;}},60);

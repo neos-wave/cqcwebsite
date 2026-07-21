@@ -1,0 +1,35 @@
+# Cassi marketing site — static, no build step
+[build]
+  publish = "."
+
+# Pretty URL for the privacy page (so /privacy works)
+[[redirects]]
+  from = "/privacy"
+  to = "/privacy.html"
+  status = 200
+
+# Pretty URL for the standalone taster (optional)
+[[redirects]]
+  from = "/taster"
+  to = "/taster.html"
+  status = 200
+
+# Sensible security headers
+[[headers]]
+  for = "/*"
+  [headers.values]
+    X-Content-Type-Options = "nosniff"
+    Referrer-Policy = "strict-origin-when-cross-origin"
+    X-Frame-Options = "SAMEORIGIN"
+    Permissions-Policy = "geolocation=(), microphone=(), camera=()"
+    Strict-Transport-Security = "max-age=31536000; includeSubDomains; preload"
+
+# Long-cache static assets
+[[headers]]
+  for = "/*.png"
+  [headers.values]
+    Cache-Control = "public, max-age=604800"
+[[headers]]
+  for = "/*.svg"
+  [headers.values]
+    Cache-Control = "public, max-age=604800"
