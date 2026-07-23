@@ -260,7 +260,7 @@
   .tcard .ti{width:44px;height:44px;border-radius:12px;background:var(--mist);display:grid;place-items:center;color:var(--teal-deep)}
   .tcard h3{font-size:19px;margin:16px 0 8px} .tcard p{font-size:15px}
 
-  .price-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;margin-top:50px;align-items:stretch}
+  .price-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:24px;margin-top:50px;align-items:stretch;max-width:900px;margin-left:auto;margin-right:auto}
   @media(max-width:920px){.price-grid{grid-template-columns:1fr;max-width:460px;margin-left:auto;margin-right:auto}}
   .tier{background:#fff;border:1px solid var(--line);border-radius:var(--radius-lg);padding:34px 30px;display:flex;flex-direction:column}
   .tier.feat{border:2px solid var(--teal);box-shadow:0 38px 80px -46px rgba(45,164,175,.5);position:relative}
@@ -587,17 +587,19 @@
   <div class="wrap">
     <div class="sec-head center">
       <span class="eyebrow">Pricing</span>
-      <h2>The rating pays for it. Cassi protects the rating.</h2>
-      <p>A Good or Outstanding rating is what keeps your beds full and your referrals coming. One home or a group — start today, scale to the group view when you're ready.</p>
+      <h2>One simple price for the co-pilot. Options when you need more.</h2>
+      <p>Every home gets the continuing assessment and the Cassi co-pilot for one flat price. When you run a group, or want Cassi wired deep into your systems, we tailor it with you.</p>
     </div>
     <div class="price-grid">
-      <div class="tier">
-        <div class="tier-name">Single Home</div>
-        <div class="tier-for">The Cassi co-pilot for one home — whether you're an owner-manager or a registered manager. Assess against CQC, build a monthly history, and protect your rating. Start a pilot in minutes.</div>
+      <div class="tier feat">
+        <div class="tier-flag">The core</div>
+        <div class="tier-name">Continuing Assessment &amp; Co-pilot</div>
+        <div class="tier-for">The heart of Cassi, for every home — whether you're an owner-manager or a registered manager. Continuous assessment against CQC, with the co-pilot beside your manager all year round.</div>
         <div class="tier-price"><span class="amt">£599</span><span class="per">/ home / month</span></div>
-        <div class="tier-sub">One home · far less than a single unfilled bed</div>
+        <div class="tier-sub">One flat price · far less than a single unfilled bed</div>
         <ul>
-          <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M4 12.5 L9.5 18 L20 6" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></svg>Full 34-statement assessment with Cassi</li>
+          <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M4 12.5 L9.5 18 L20 6" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></svg>Continuing assessment across all 34 quality statements</li>
+          <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M4 12.5 L9.5 18 L20 6" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></svg>The Cassi co-pilot beside your manager, year-round</li>
           <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M4 12.5 L9.5 18 L20 6" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></svg>Readiness history &amp; trend over time</li>
           <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M4 12.5 L9.5 18 L20 6" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></svg>Gap flagging &amp; priority actions to lift your rating</li>
           <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M4 12.5 L9.5 18 L20 6" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></svg>DSCR-funding eligible pathway</li>
@@ -605,39 +607,23 @@
         <a href="#book" class="btn btn-primary" data-cta="pilot">Start a pilot now</a>
       </div>
 
-      <div class="tier feat">
-        <div class="tier-flag">Most popular</div>
-        <div class="tier-name">Group Intelligence</div>
-        <div class="tier-for">For multi-site groups — the central reporting layer across every home.</div>
+      <div class="tier">
+        <div class="tier-name">Group &amp; Deeper Integration</div>
+        <div class="tier-for">Options on top of the core, tailored to how you operate — for groups that want one view across every home, and for providers who want Cassi wired into their existing systems.</div>
         <div class="tier-price"><span class="amt">Let's talk</span></div>
-        <div class="tier-sub">From £150 / home / month + platform fee · typically £25k–£60k / year</div>
+        <div class="tier-sub">Scoped and priced with you · built on the £599 core</div>
         <ul>
-          <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M4 12.5 L9.5 18 L20 6" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></svg><b>Everything in Single Home, across every home</b></li>
+          <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M4 12.5 L9.5 18 L20 6" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></svg><b>Group Intelligence</b> — one live view across every home</li>
+          <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M4 12.5 L9.5 18 L20 6" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></svg>Cross-site benchmarking &amp; risk scoring for the group</li>
           <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M4 12.5 L9.5 18 L20 6" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></svg>Plain-English chat across the whole estate</li>
-          <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M4 12.5 L9.5 18 L20 6" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></svg>Exposure list — homes rated above their evidence</li>
+          <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M4 12.5 L9.5 18 L20 6" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></svg><b>Deeper integration</b> with your systems (PCS, Nourish, eMAR…)</li>
           <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M4 12.5 L9.5 18 L20 6" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></svg>Your own standards overlaid on CQC (optional)</li>
-          <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M4 12.5 L9.5 18 L20 6" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></svg>Cross-site benchmarking &amp; risk scoring</li>
-          <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M4 12.5 L9.5 18 L20 6" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></svg>System integrations per home (PCS, Nourish…)</li>
-          <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M4 12.5 L9.5 18 L20 6" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></svg>Framework-adaptive mapping (SAF → KLOEs)</li>
+          <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M4 12.5 L9.5 18 L20 6" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></svg>SSO, API access &amp; dedicated onboarding for larger groups</li>
         </ul>
         <a href="#book" class="btn btn-teal">Book a walkthrough <span class="btn-arrow">→</span></a>
       </div>
-
-      <div class="tier">
-        <div class="tier-name">Estate</div>
-        <div class="tier-for">For large groups &amp; enterprise operators (20+ homes).</div>
-        <div class="tier-price"><span class="amt">Talk to us</span></div>
-        <div class="tier-sub">Custom commercial terms</div>
-        <ul>
-          <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M4 12.5 L9.5 18 L20 6" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></svg>Everything in Group Intelligence</li>
-          <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M4 12.5 L9.5 18 L20 6" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></svg>SSO, API access &amp; data export</li>
-          <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M4 12.5 L9.5 18 L20 6" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></svg>Dedicated success &amp; onboarding</li>
-          <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M4 12.5 L9.5 18 L20 6" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></svg>Cross-group anonymised benchmarking</li>
-        </ul>
-        <a href="#book" class="btn btn-ghost">Contact sales</a>
-      </div>
     </div>
-    <p class="price-foot">Every tier is anchored on value, not headcount. A higher CQC rating fills beds and wins referrals — so Cassi typically pays for itself with a single retained placement, long before it protects you from a downgrade.</p>
+    <p class="price-foot">Anchored on value, not headcount. A higher CQC rating fills beds and wins referrals — so Cassi typically pays for itself with a single retained placement, long before it protects you from a downgrade.</p>
   </div>
 </section>
 
