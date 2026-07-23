@@ -208,6 +208,22 @@
   .pricehook .btn-white:hover{transform:translateY(-2px)}
   .pricehook .ph-divider{width:1px;align-self:stretch;background:rgba(255,255,255,.22)}
   @media(max-width:860px){.pricehook .ph-divider{display:none}}
+
+  /* Board report card */
+  .report-card{background:#fff;border:1px solid var(--line);border-radius:var(--radius-lg);box-shadow:var(--shadow);overflow:hidden}
+  .report-head{background:var(--deep-purple);color:#fff;padding:20px 24px;display:flex;align-items:center;justify-content:space-between}
+  .report-head .rt{font-weight:800;font-size:16px;letter-spacing:-.01em}
+  .report-head .rd{font-size:12.5px;opacity:.8}
+  .report-body{padding:22px 24px}
+  .report-row{display:flex;align-items:center;justify-content:space-between;padding:12px 0;border-bottom:1px solid var(--line);font-size:14.5px}
+  .report-row:last-child{border-bottom:0}
+  .report-row .rl{color:var(--ink);font-weight:600}
+  .rag{display:inline-flex;align-items:center;gap:7px;font-weight:700;font-size:13px}
+  .rag i{width:10px;height:10px;border-radius:50%}
+  .rag.g i{background:#2da4af}.rag.a i{background:#e0a200}.rag.r i{background:#d6336c}
+  .rag.g{color:var(--teal-deep)}.rag.a{color:#9a6a00}.rag.r{color:#c2185b}
+  .report-foot{padding:16px 24px;background:var(--lilac);font-size:13px;color:var(--grey);display:flex;align-items:center;gap:9px}
+  .report-foot svg{flex:none}
   .step .tag{position:absolute;top:32px;right:30px;font-size:12px;font-weight:700;color:var(--teal-deep)}
 
   .feature{display:grid;grid-template-columns:1fr 1fr;gap:54px;align-items:center}
@@ -457,7 +473,7 @@
     </div>
     <div class="steps">
       <div class="step"><span class="tag">each month</span><h3>Assess with the co-pilot</h3><p>Each home's manager works through the CQC quality statements with Cassi — giving their evidence, statement by statement.</p></div>
-      <div class="step"><h3>Cassi assesses; the manager decides</h3><p>Cassi assesses the evidence against CQC and gives her rating. The manager sets the rating of record. Where the two differ, that's captured.</p></div>
+      <div class="step"><h3>Cassi assesses; the manager decides</h3><p>Cassi assesses the evidence against CQC and gives its rating. The manager sets the rating of record. Where the two differ, that's captured.</p></div>
       <div class="step"><h3>Cassi turns it into insight</h3><p>The more you self-assess, the more the co-pilot sees — mapping trajectories, gaps and patterns, and showing you where to act first. From one home or across a group.</p></div>
     </div>
   </div>
@@ -469,7 +485,7 @@
       <div class="fcopy">
         <span class="eyebrow">The co-pilot</span>
         <h2>A co-pilot for every manager.</h2>
-        <p class="lead">Cassi works through all 34 quality statements with your manager. For each one she assesses the evidence against CQC — like a fair, supportive mock inspector — gives her rating, gently names what's missing, and shows what would move it up a level. If you're already Outstanding, she helps you hold it there. The manager gives the evidence and sets the rating of record.</p>
+        <p class="lead">Cassi works through all 34 quality statements with your manager. For each one it assesses the evidence against CQC — like a fair, supportive mock inspector — gives its rating, gently names what's missing, and shows what would move it up a level. If you're already Outstanding, it helps you hold it there. The manager gives the evidence and sets the rating of record.</p>
         <ul class="check-list">
           <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M4 12.5 L9.5 18 L20 6" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></svg>All five key questions — Safe, Effective, Caring, Responsive, Well-led</li>
           <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M4 12.5 L9.5 18 L20 6" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></svg>Assesses each statement against CQC — a mock inspection, minus the fear</li>
@@ -637,6 +653,36 @@
   </div>
 </section>
 
+<section id="reporting" class="tint-mist">
+  <div class="wrap">
+    <div class="feature flip">
+      <div class="fcopy">
+        <span class="eyebrow">Reporting up the chain</span>
+        <h2>Board-ready, without the Sunday-night spreadsheet.</h2>
+        <p class="lead">Owners, directors and boards want one honest answer: where do we stand, and what's the risk? Cassi turns every self-assessment into a clean report you can hand straight up — to your CEO, your board, your owners or a commissioner — the same picture Cassi sees, in language they'll act on. It works for a single home, and rolls up the moment you have a group.</p>
+        <ul class="check-list">
+          <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M4 12.5 L9.5 18 L20 6" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></svg>A board-ready summary in a click — no manual write-up</li>
+          <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M4 12.5 L9.5 18 L20 6" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></svg>Rating, trend and top risks per home — or across the whole group</li>
+          <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M4 12.5 L9.5 18 L20 6" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></svg>The evidence behind every rating, ready if a commissioner asks</li>
+        </ul>
+      </div>
+      <div class="report-card" aria-label="Example board report">
+        <div class="report-head">
+          <div><div class="rt">Board report · July</div><div class="rd">Brackenford Care Group · 5 homes</div></div>
+          <svg width="26" height="26" viewBox="0 0 24 24" fill="none"><rect x="4" y="3" width="16" height="18" rx="2" stroke="#fff" stroke-width="1.8"/><path d="M8 8 h8 M8 12 h8 M8 16 h5" stroke="#fff" stroke-width="1.8" stroke-linecap="round"/></svg>
+        </div>
+        <div class="report-body">
+          <div class="report-row"><span class="rl">Group position</span><span class="rag g"><i></i>Good · holding</span></div>
+          <div class="report-row"><span class="rl">Willow Grange</span><span class="rag g"><i></i>Good · backed</span></div>
+          <div class="report-row"><span class="rl">Oakfield — Well-led</span><span class="rag a"><i></i>Above evidence</span></div>
+          <div class="report-row"><span class="rl">Training compliance</span><span class="rag r"><i></i>Action needed</span></div>
+        </div>
+        <div class="report-foot"><svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M12 3 L20 6 V11 C20 16 16.5 19.5 12 21 C7.5 19.5 4 16 4 11 V6 Z" stroke="#6f6b7d" stroke-width="2" stroke-linejoin="round"/><path d="M9 12 l2 2 l4-4.5" stroke="#6f6b7d" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>Every figure traces back to real evidence, ready to show.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
 <section class="tint-lilac">
   <div class="wrap">
     <span class="eyebrow">Sits above your stack</span>
@@ -678,7 +724,7 @@
     </div>
     <div class="trust-grid">
       <div class="tcard"><div class="ti"><svg width="22" height="22" viewBox="0 0 24 24" fill="none"><path d="M12 3 L20 6 V11 C20 16 16.5 19.5 12 21 C7.5 19.5 4 16 4 11 V6 Z" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/><path d="M9 12 l2 2 l4-4.5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></div><h3>Fully traceable</h3><p>Every line of evidence links back to a real staff action, timestamp and outcome. Nothing is fabricated; everything traces to source.</p></div>
-      <div class="tcard"><div class="ti"><svg width="22" height="22" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="8" r="3.4" stroke="currentColor" stroke-width="2"/><path d="M5 20 c0-4 3.5-6 7-6 s7 2 7 6" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg></div><h3>Human in the loop</h3><p>Cassi assesses against CQC and surfaces the gap; the registered manager sets the rating of record. It supports her judgement — it never overrides it.</p></div>
+      <div class="tcard"><div class="ti"><svg width="22" height="22" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="8" r="3.4" stroke="currentColor" stroke-width="2"/><path d="M5 20 c0-4 3.5-6 7-6 s7 2 7 6" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg></div><h3>Supported by our team</h3><p>Cassi assesses against CQC and surfaces the gap; your registered manager sets the rating of record, with our team alongside you. It supports your manager's judgement — it never overrides it.</p></div>
       <div class="tcard"><div class="ti"><svg width="22" height="22" viewBox="0 0 24 24" fill="none"><rect x="4" y="9" width="16" height="11" rx="2" stroke="currentColor" stroke-width="2"/><path d="M8 9 V7 a4 4 0 018 0 v2" stroke="currentColor" stroke-width="2"/></svg></div><h3>Your data, protected</h3><p>Neos Wave is <b>Cyber Essentials certified</b> and has met the <b>NHS Data Security &amp; Protection Toolkit</b> (2025-26). UK/EEA data residency, encrypted throughout — and never used to train AI models.</p></div>
       <div class="tcard"><div class="ti"><svg width="22" height="22" viewBox="0 0 24 24" fill="none"><path d="M12 3 v18 M3 12 h18" stroke="currentColor" stroke-width="2" stroke-linecap="round"/><circle cx="12" cy="12" r="9" stroke="currentColor" stroke-width="2"/></svg></div><h3>Structures, doesn't generate</h3><p>It orchestrates evidence your staff already created. This is not a policy generator — the distinction inspectors now care about.</p></div>
     </div>
