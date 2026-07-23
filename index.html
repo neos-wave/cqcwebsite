@@ -193,6 +193,21 @@
   .amp h4{font-size:17px;margin:16px 0 7px;color:var(--deep-purple)}
   .amp p{font-size:14.5px;color:var(--ink)}
   .amp .more{display:inline-block;margin-top:12px;font-size:12.5px;font-weight:700;letter-spacing:.04em;text-transform:uppercase;color:var(--teal-deep)}
+
+  /* Price hook band */
+  .pricehook{background:linear-gradient(135deg,var(--deep-purple),var(--purple));color:#fff;border-radius:var(--radius-lg);padding:44px 48px;display:grid;grid-template-columns:auto 1fr auto;align-items:center;gap:40px;box-shadow:0 30px 64px -34px rgba(53,11,116,.55)}
+  @media(max-width:860px){.pricehook{grid-template-columns:1fr;gap:24px;padding:34px 26px;text-align:center}}
+  .pricehook .ph-price{line-height:1}
+  .pricehook .ph-amt{font-family:'Sora',sans-serif;font-weight:800;font-size:clamp(44px,6vw,60px);letter-spacing:-.03em;display:block}
+  .pricehook .ph-per{font-size:15px;font-weight:600;opacity:.85;display:block;margin-top:4px}
+  .pricehook .ph-copy h3{color:#fff;font-size:clamp(21px,2.6vw,27px);margin:0 0 8px;line-height:1.15}
+  .pricehook .ph-copy p{color:rgba(255,255,255,.9);font-size:16px;margin:0;max-width:560px}
+  @media(max-width:860px){.pricehook .ph-copy p{margin:0 auto}}
+  .pricehook .ph-copy strong{color:#fff;font-weight:800}
+  .pricehook .btn-white{background:#fff;color:var(--deep-purple);white-space:nowrap;box-shadow:0 12px 26px -14px rgba(0,0,0,.4)}
+  .pricehook .btn-white:hover{transform:translateY(-2px)}
+  .pricehook .ph-divider{width:1px;align-self:stretch;background:rgba(255,255,255,.22)}
+  @media(max-width:860px){.pricehook .ph-divider{display:none}}
   .step .tag{position:absolute;top:32px;right:30px;font-size:12px;font-weight:700;color:var(--teal-deep)}
 
   .feature{display:grid;grid-template-columns:1fr 1fr;gap:54px;align-items:center}
@@ -412,6 +427,23 @@
       <div class="stat"><div class="big">15–20h</div><p>lost per manager, per week, gathering evidence by hand instead of caring.</p></div>
       <div class="stat"><div class="big">365</div><p>days a year you must be inspection-ready — there is no "inspection season" anymore.</p></div>
       <div class="stat"><div class="big">£100k+</div><p>in lost occupancy and funding a single rating downgrade can cost one home — as commissioners and families look elsewhere.</p></div>
+    </div>
+  </div>
+</section>
+
+<section id="price-hook">
+  <div class="wrap">
+    <div class="pricehook">
+      <div class="ph-price">
+        <span class="ph-amt">£599</span>
+        <span class="ph-per">per home / month</span>
+      </div>
+      <div class="ph-divider"></div>
+      <div class="ph-copy">
+        <h3>The intelligence of a consultant, always on — at a fraction of the cost.</h3>
+        <p>One flat price gives you continuing assessment and the Cassi co-pilot all year. <strong>Far less than the day rates you'd pay outside consultants and compliance contractors</strong> — and it's there every day, not just the week before a visit.</p>
+      </div>
+      <a href="#pricing" class="btn btn-white">See what's included <span class="btn-arrow">→</span></a>
     </div>
   </div>
 </section>
@@ -693,7 +725,7 @@
         <a href="#book" class="btn btn-teal">Book a walkthrough <span class="btn-arrow">→</span></a>
       </div>
     </div>
-    <p class="price-foot">Anchored on value, not headcount. A higher CQC rating fills beds and wins referrals — so Cassi typically pays for itself with a single retained placement, long before it protects you from a downgrade.</p>
+    <p class="price-foot">Anchored on value, not headcount. Cassi does the work you'd otherwise pay outside consultants and compliance contractors day rates for — continuously, not once a year. A higher CQC rating fills beds and wins referrals, so it typically pays for itself with a single retained placement, long before it protects you from a downgrade.</p>
   </div>
 </section>
 
